@@ -4,8 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.iacovelli.repository.facts.data.CatFactCacheService
-import com.iacovelli.repository.facts.data.CatFactRemoteService
 import com.iacovelli.repository.facts.data.Repository
 import com.iacovelli.repository.facts.domain.Fact
 import kotlinx.coroutines.launch
