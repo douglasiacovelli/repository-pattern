@@ -6,35 +6,28 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.iacovelli.repository.facts.data.CatFactCacheService
 import com.iacovelli.repository.facts.data.CatFactRemoteService
+import com.iacovelli.repository.facts.data.Repository
 import com.iacovelli.repository.facts.domain.Fact
 import kotlinx.coroutines.launch
 
 class MainViewModel(
-    private val remoteService: CatFactRemoteService,
-    private val cacheService: CatFactCacheService
+    private val repository: Repository
 ) : ViewModel() {
 
     val cats = MutableLiveData<Fact>()
 
     fun fetchData() {
         viewModelScope.launch {
-            try {
-                val result = remoteService.getFacts().toModel()
-                cats.value = result.random()
-            } catch(exception: Exception) {
-                val result = cacheService.getFacts().random()
-                cats.value = Fact(result)
-            }
+            cats.value = repository.getFact()
         }
     }
 
     @Suppress("UNCHECKED_CAST")
     class Factory(
-        private val remoteService: CatFactRemoteService,
-        private val cacheService: CatFactCacheService
+        private val repository: Repository
     ) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return MainViewModel(remoteService, cacheService) as T
+            return MainViewModel(repository) as T
         }
     }
 }

@@ -9,6 +9,7 @@ import com.iacovelli.repository.CustomApplication
 import com.iacovelli.repository.R
 import com.iacovelli.repository.facts.data.CatFactCacheServiceImpl
 import com.iacovelli.repository.facts.data.CatFactRemoteService
+import com.iacovelli.repository.facts.data.RepositoryImpl
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Retrofit
 
@@ -16,7 +17,8 @@ class MainActivity : AppCompatActivity() {
 
     private val remoteService by lazy { getRetrofit().create(CatFactRemoteService::class.java) }
     private val cacheService by lazy { CatFactCacheServiceImpl() }
-    private val viewModel by viewModels<MainViewModel> { MainViewModel.Factory(remoteService, cacheService) }
+    private val repository by lazy { RepositoryImpl(remoteService, cacheService) }
+    private val viewModel by viewModels<MainViewModel> { MainViewModel.Factory(repository) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
