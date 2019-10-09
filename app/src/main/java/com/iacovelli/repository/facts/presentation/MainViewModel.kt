@@ -19,7 +19,7 @@ class MainViewModel(
     fun fetchData() {
         viewModelScope.launch {
             try {
-                val result = remoteService.getFacts().toModel()
+                val result = remoteService.getFacts().toListOfFacts()
                 cats.value = result.random()
             } catch(exception: Exception) {
                 val result = cacheService.getFacts().random()
