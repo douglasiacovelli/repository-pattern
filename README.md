@@ -18,3 +18,14 @@ https://github.com/douglasiacovelli/repository-pattern/pull/1/files
 <img src="https://user-images.githubusercontent.com/1608564/66510778-176ffb00-eaac-11e9-86ad-dadf59abc7bf.png" width="250px"/>
 <img src="https://user-images.githubusercontent.com/1608564/66510777-16d76480-eaac-11e9-81e8-e9c8fe6324cb.png" width="250px"/>
 </p>
+
+### Bibliotecas utilizadas
+- Retrofit
+- Architecture components (ViewModel e LiveData)
+- Coroutines
+- Moshi
+- Moshi Converter
+- AppCompat
+
+### Atenção
+Estes repositórios de exemplo para vídeos são simplificados e não representam exatamente aplicativos prontos para ir para produção. Não foram utilizadas bibliotecas de injeção de dependência. O "Cache" é apenas um exemplo simplificado e retorna uma lista "chumbada".
