@@ -2,18 +2,16 @@ package com.iacovelli.repository.facts.data
 
 import com.iacovelli.repository.facts.domain.Fact
 
-data class FactsResponse(
+data class AllFactsResponse(
     val all: List<FactResponse>
 ) {
-    fun toModel(): List<Fact> {
-        return all.map { it.toModel() }
+    fun toListOfFacts(): List<Fact> {
+        return all.map { it.toFact() }
     }
 }
 
 data class FactResponse(
     val text: String
 ) {
-    fun toModel(): Fact {
-        return Fact(text = text)
-    }
+    fun toFact() = Fact(text = text)
 }

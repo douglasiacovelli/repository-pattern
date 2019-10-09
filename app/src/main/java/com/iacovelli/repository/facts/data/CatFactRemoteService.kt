@@ -5,5 +5,5 @@ import retrofit2.http.GET
 interface CatFactRemoteService {
 
     @GET("/facts")
-    suspend fun getFacts(): FactsResponse
+    suspend fun getFacts(): AllFactsResponse
 }

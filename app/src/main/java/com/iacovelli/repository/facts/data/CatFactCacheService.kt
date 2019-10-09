@@ -6,6 +6,6 @@ interface CatFactCacheService {
 
 class CatFactCacheServiceImpl: CatFactCacheService {
     override fun getFacts(): List<String> {
-        return listOf("Cats like eating raw meat")
+        return listOf("Cache: Cats like eating raw meat", "Cache: Young cats are called kittens")
     }
 }
